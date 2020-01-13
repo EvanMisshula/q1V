@@ -1,0 +1,41 @@
+"Category","CatGrp","Question","noCount","yesCount","NoAnswer","NoPct","yesPct","qNum","totalSurveys"
+"Services",0,"Are you able to access phones and regularly make phone calls according to your security/tier/discipline status?",156,220,10,41.5,58.5,"q.Q3",386
+"Services",0,"Are you able to regularly access recreation, yard, or gym spaces according to your security/tier/discipline status?",99,280,7,26.1,73.9,"q.Q4",386
+"Services",0,"Are you able to regularly access the library or law library according to your security/tier/discipline status?",160,222,4,41.9,58.1,"q.Q5",386
+"Services",0,"Are you able to regularly receive visits from family and friends according to your security/tier/discipline status?",93,279,14,25,75,"q.Q6",386
+"Services",0,"Are you currently enrolled in a program that you either want to be in or that is required by DOCCS?",204,174,8,54,46,"q.Q7",386
+"Services",0,"Are you able to regularly access religious services?",128,250,8,33.9,66.1,"q.Q8",386
+"Services",0,"Are you able to access language assistance if your primary language is not English?",86,198,102,30.3,69.7,"q.Q9",386
+"Services",0,"Do financial barriers ever impact whether or not your family can visit you?",81,293,12,21.7,78.3,"q.Q10",386
+"Procedure",1,"In the past year, were you ever placed in a Special Housing Unit (SHU or “The Box”)?",224,155,7,59.1,40.9,"q.Q11",386
+"Procedure",1,"In the past year, were you ever placed in keeplock?",163,214,9,43.2,56.8,"q.Q12",386
+"Procedure",1,"In the past year, were you ever deprived of a basic need or “burned” by prison staff?",84,296,6,22.1,77.9,"q.Q13",386
+"Procedure",1,"In the past year, have you ever isolated yourself in your cell for any reason, including fear for your own safety or your mental health?",163,212,11,43.5,56.5,"q.Q14",386
+"Procedure",1,"In the past year, were you ever denied visits or phone calls?",189,184,13,50.7,49.3,"q.Q15",386
+"Procedure",1,"In the past year, did you ever receive a tier II or tier III misbehavior report or ticket?",160,217,9,42.4,57.6,"q.Q16",386
+"Procedure",1,"Do you agree with the way DOCCS has classified you (e.g. your security level, gang affiliation, security threat status, PC, ICP, or SOP)?",274,88,24,75.7,24.3,"q.Q17",386
+"Procedure",1,"Have you gone before the parole board for the sentence you are currently serving?",320,42,24,88.4,11.6,"q.Q18",386
+"Procedure",1,"18A. Was this your first time going before the parole board for this sentence?",68,36,282,65.4,34.6,"q.Q18a",386
+"Procedure",1,"18B. Were you approved for parole but still remain in prison?",75,22,289,77.3,22.7,"q.Q18b",386
+"Procedure",1,"In the past year, have you filed a grievance?",90,271,25,24.9,75.1,"q.Q19",386
+"Procedure",1,"19A. Did you receive a response to your grievance?",145,156,85,48.2,51.8,"q.Q19a",386
+"Procedure",1,"19B. Was your grievance resolved in your favor?",256,40,90,86.5,13.5,"q.Q19b",386
+"Procedure",1,"19C. Have you ever faced retaliation or discipline for filing a grievance?",98,200,88,32.9,67.1,"q.Q19c",386
+"Economics",2,"In the past year, have you ever had issues accessing the commissary?",194,183,9,51.5,48.5,"q.Q20",386
+"Economics",2,"In the past year, have you ever had issues with receiving packages, including missing items from your packages?",108,270,8,28.6,71.4,"q.Q21",386
+"Economics",2,"In the past year, have you ever had issues with your inmate account statement, including missing funds from your account?",220,155,11,58.7,41.3,"q.Q22",386
+"Economics",2,"Do you currently have a job assignment that requires you to be out of your cell for at least one module a day?",173,209,4,45.3,54.7,"q.Q23",386
+"Economics",2,"Do you earn enough through your job to purchase items you need from the commissary and to pay any surcharges or restitution fees levied against your account?",337,35,14,90.6,9.4,"q.Q24",386
+"Economics",2,"In the past year, have you ever been disciplined for refusing to work?",315,59,12,84.2,15.8,"q.Q25",386
+"Health and Well Being",3,"In the past year, were you ever unable to see a doctor or other medical professional when needed?",99,277,10,26.3,73.7,"q.Q26",386
+"Health and Well Being",3,"26A. If you were able to see a doctor or medical professional, were your medical concerns ever untreated?",118,230,38,33.9,66.1,"q.Q26a",386
+"Health and Well Being",3,"In the past year, were you ever unable to see a dentist when needed?",179,191,16,48.4,51.6,"q.Q27",386
+"Health and Well Being",3,"27A. If you were able to see a dentist, were your dental concerns ever untreated?",170,158,58,51.8,48.2,"q.Q27a",386
+"Health and Well Being",3,"In the past year, were you ever unable to see a mental health professional when needed?",244,105,37,69.9,30.1,"q.Q28",386
+"Health and Well Being",3,"28A. If you were able to see a mental health professional, were your mental health concerns ever untreated?",193,96,97,66.8,33.2,"q.Q28a",386
+"Health and Well Being",3,"In the past year, have you ever engaged in self-harm (self-injury including cutting, stabbing, burning or abusing your own body)?",326,45,15,87.9,12.1,"q.Q29",386
+"Health and Well Being",3,"In the past year, have you ever had serious thoughts about or attempted suicide?",284,88,14,76.3,23.7,"q.Q30",386
+"Health and Well Being",3,"Would you categorize your cell or housing unit as habitable? (According to DOCCS, this includes proper lighting, bedding, and storage and a functioning toilet, sink, and shower.)",200,177,9,53.1,46.9,"q.Q31",386
+"Interpersonal",4,"In the past year, have you witnessed any forms of violence or abuse by staff, including physical, sexual, and verbal abuse?",65,314,7,17.2,82.8,"q.Q32",386
+"Interpersonal",4,"In the past year, have you experienced any forms of violence or abuse by staff, including physical, sexual, and verbal abuse?",114,262,10,30.3,69.7,"q.Q33",386
+"Interpersonal",4,"In the past year, have you ever witnessed or experienced racist behavior from staff (including racist conduct, use of racial slurs, racist tattoos, or racist depictions)?",89,282,15,24,76,"q.Q34",386
