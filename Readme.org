@@ -1,0 +1,4 @@
+#+Title: Q1 reporting 
+#+Author: Evan Misshula
+
+The graph updates the rectangles but not the catAxis (y-axis).  Any help is appreciated!
