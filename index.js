@@ -34,7 +34,8 @@ const dcRestrict = d => d.Category === displayCategory;
 
 
 const onMyCatClicked = category => {
-    displayCategory = category;
+    catIndex = +category;
+    displayCategory=myCat[catIndex];
     restrictedData = data.filter(dcRestrict);
     render();
 };
