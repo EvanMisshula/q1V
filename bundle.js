@@ -22,54 +22,14 @@
 		    .text(d => d);
 	    }};
 
-	//import { barchart } from './barchart';
+	const barchart = (selection, props) => {
 
-	const svg = d3.select('svg');
-	const width = +svg.attr('width');
-	const height = +svg.attr('height');
-	let margin = { top: 20, right: 40, bottom: 140, left: 200 };
-	let dataValue = d => d.yesPct;
-	let catValue = d => d.qNum;
-	 
-
-	let data;
-	let displayCategory;
-	let restrictedData;
-	let catIndex;
-
-	let myCat = [ "Services",
-		      "Procedure",
-		      "Economics",
-		      "Health and Well Being",
-		      "Interpersonal"];
-
-
-
-	const dcRestrict = d => d.Category === displayCategory;
-
-
-	const onMyCatClicked = category => {
-	    catIndex = +category;
-	    displayCategory=myCat[catIndex];
-	    restrictedData = data.filter(dcRestrict);
-	    render();
-	};
 	    
-	const render = ()  => {
-	    
-	    d3.select('#menus')
-		.call(dropDownMenu, {
-		    options: myCat,
-		    onCategoryClicked: onMyCatClicked
-		});
+	    const xAxisLabel = "Yes Pct";
 
-	    console.log(displayCategory);
-	    console.log(restrictedData);
-	    let catAxisLabel = displayCategory;
-	    let xAxisLabel = "Yes Pct";
-
-	    const innerHeight = height - margin.top - margin.bottom;
-	    const innerWidth = width - margin.left - margin.right;
+	    console.log(props.height);
+	    const innerHeight = props.height - props.margin.top - props.margin.bottom;
+	    const innerWidth = props.width - props.margin.left - props.margin.right;
 	    
 	    const dataScale = d3.scaleLinear()
 		  .domain([0, 100])
@@ -77,11 +37,12 @@
 	    
 	    
 	    const catScale = d3.scaleBand()
-		  .domain(restrictedData.map(catValue))
+		  .domain(props.restrictedData.map(props.catValue))
 		  .range([0, innerHeight])
 		  .padding(0.1);
-	    
-	    const g = svg.selectAll('.container').data([null]);
+		
+
+	    const g = selection.selectAll('.container').data([null]);
 	    const gEnter = g
 		  .enter().append('g')
 		  .attr('class','container');
@@ -89,13 +50,19 @@
 	    gEnter
 		.merge(g)
 		.attr('transform',
-			`translate(${margin.left},${margin.top})`);
+			`translate(${props.margin.left},${props.margin.top})`);
 	    
 	    const catAxis =d3.axisLeft(catScale);
 
 	    const xAxis = d3.axisBottom(dataScale);
 
-	    const catAxisG = g.select('y-axis');
+	    const catAxisG = gEnter
+		  .append('g')
+		  .attr('class','y-axis')
+		  .merge(g.select('.y-axis'))
+		  .call(catAxis)
+		  .selectAll('.domain').remove();
+	    
 	    const catAxisGEnter =  gEnter
 		  .append('g')
 	     	  .attr('class','y-axis');
@@ -113,7 +80,7 @@
 		  .attr('text-anchor','middle')
 		  .merge(catAxisG.select('.axis-label'))
 		  .attr('x', -innerHeight/2)
-		  .text(catAxisLabel);
+		  .text(props.displayCategory);
 	    
 	    const xAxisG = g.select('.x-axis');
 	    const xAxisGEnter = gEnter
@@ -133,17 +100,73 @@
 		  .merge(xAxisG.select('.axis-label'))
 		  .attr('x', innerWidth / 2)
 		  .text(xAxisLabel);
-		  
-
 
 
 	    const rectangles = g.merge(gEnter).
-		  selectAll('rect').data(restrictedData);
+		  selectAll('rect').data(props.restrictedData);
 	    rectangles.enter().append('rect')
 		.merge(rectangles)
-		.attr('y',d=>catScale(catValue(d)))
-		.attr('width',d=>dataScale(dataValue(d)))
-		.attr('height', catScale.bandwidth());
+		.attr('y',d=>catScale(props.catValue(d)))
+		.attr('width',d=>dataScale(props.dataValue(d)))
+		.attr('height', catScale.bandwidth())
+		.remove();
+
+	};
+
+	const svg = d3.select('svg');
+
+	// let dataValue = d => d.yesPct;
+	// let catValue = d => d.qNum;
+	 
+
+	let data;
+	let displayCategory;
+	let restrictedData;
+	let catIndex;
+
+
+	let myCat = [ "Services",
+		      "Procedure",
+		      "Economics",
+		      "Health and Well Being",
+		      "Interpersonal"];
+
+
+
+	const dcRestrict = d => d.Category === displayCategory;
+
+	const margin = { top: 20, right: 40, bottom: 140, left: 200 };
+	const width = +svg.attr('width');
+	const height = +svg.attr('height');
+	    
+
+	const onMyCatClicked = category => {
+	    catIndex = +category;
+	    displayCategory=myCat[catIndex];
+	    restrictedData = data.filter(dcRestrict);
+	    render();
+	};
+	    
+	const render = ()  => {
+	    
+	    d3.select('#menus')
+		.call(dropDownMenu, {
+		    options: myCat,
+		    onCategoryClicked: onMyCatClicked
+		});
+
+	    console.log(displayCategory);
+	    console.log(restrictedData);
+	    console.log(height);
+	    
+	    svg.call(barchart,{
+		dataValue: d => d.yesPct,
+		catValue: d => d.qNum,
+		restrictedData: restrictedData,
+		margin: margin,
+		width: width,
+		height: height
+	    });
 
 	};
 
@@ -166,6 +189,7 @@
 		 d.totalSurveys = +d.totalSurveys;
 	    });
 	//     console.log(data);
+	     displayCategory = "Services";
 	     restrictedData = data.filter(d => d.Category === "Services");
 	     render();
 

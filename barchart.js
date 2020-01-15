@@ -10,17 +10,21 @@ import { select,
 export const barchart = (selection, props) => {
     {
 	const { 
-		dataValue,
-		catValue,
-		margin,
-		width,
-		height,
-		restrictedData
+	    dataValue,
+	    catValue,
+	    restrictedData,
+	    margin,
+	    width,
+	    height
 	      } = props;
     };
 
-    const innerHeight = height - margin.top - margin.bottom;
-    const innerWidth = width - margin.left - margin.right;
+    
+    const xAxisLabel = "Yes Pct";
+
+    console.log(props.height);
+    const innerHeight = props.height - props.margin.top - props.margin.bottom;
+    const innerWidth = props.width - props.margin.left - props.margin.right;
     
     const dataScale = scaleLinear()
 	  .domain([0, 100])
@@ -28,18 +32,32 @@ export const barchart = (selection, props) => {
     
     
     const catScale = scaleBand()
-	  .domain(restrictedData.map(catValue))
+	  .domain(props.restrictedData.map(props.catValue))
 	  .range([0, innerHeight])
 	  .padding(0.1);
-    
-    const g = selection.selectAll('.container').data([null]);
+	
 
-	gEnter.attr('transform',
-		`translate(${margin.left},${margin.top})`);
+    const g = selection.selectAll('.container').data([null]);
+    const gEnter = g
+	  .enter().append('g')
+	  .attr('class','container');
+    
+    gEnter
+	.merge(g)
+	.attr('transform',
+		`translate(${props.margin.left},${props.margin.top})`);
     
     const catAxis =axisLeft(catScale);
 
-    const catAxisG = g.select('y-axis');
+    const xAxis = axisBottom(dataScale);
+
+    const catAxisG = gEnter
+	  .append('g')
+	  .attr('class','y-axis')
+	  .merge(g.select('.y-axis'))
+	  .call(catAxis)
+	  .selectAll('.domain').remove();
+    
     const catAxisGEnter =  gEnter
 	  .append('g')
      	  .attr('class','y-axis');
@@ -55,31 +73,40 @@ export const barchart = (selection, props) => {
 	  .attr('fill','black')
 	  .attr('transform',`rotate(90)`)
 	  .attr('text-anchor','middle')
-	  .merge(catAxisG.select('.asix-label'))
+	  .merge(catAxisG.select('.axis-label'))
 	  .attr('x', -innerHeight/2)
-	  .text(catAxisLabel);
+	  .text(props.displayCategory);
     
-    const xAxisG = g.append('g')
-	  .call(axisBottom(dataScale))
-	  .attr('transform', `translate(0,${innerHeight})`);
+    const xAxisG = g.select('.x-axis');
+    const xAxisGEnter = gEnter
+	  .append('g')
+	  .attr('class', 'x-axis');
+    xAxisG
+	.merge(xAxisGEnter)
+	.attr('transform', `translate(0,${innerHeight})`)
+	.call(xAxis)
+	.selectAll('domain').remove();
 
+    const xAxisLabelText = xAxisGEnter
+	  .append('text')
+	  .attr('class', 'axis-label')
+	  .attr('y', 75)
+	  .attr('fill', 'black')
+	  .merge(xAxisG.select('.axis-label'))
+	  .attr('x', innerWidth / 2)
+	  .text(xAxisLabel);
 
 
     const rectangles = g.merge(gEnter).
-	  selectAll('rect').data(restrictedData);
+	  selectAll('rect').data(props.restrictedData);
     rectangles.enter().append('rect')
 	.merge(rectangles)
-	.attr('y',d=>catScale(catValue(d)))
-	.attr('width',d=>dataScale(dataValue(d)))
-	.attr('height', catScale.bandwidth());
-
-    // gEnter.append('text')
-    // 	.attr('class','title')
-    // 	.attr('y',-10)
-    // 	.title(displayCategory);
-	
-
-
-
+	.attr('y',d=>catScale(props.catValue(d)))
+	.attr('width',d=>dataScale(props.dataValue(d)))
+	.attr('height', catScale.bandwidth())
+	.remove();
 
 };
+
+
+    
