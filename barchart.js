@@ -103,8 +103,7 @@ export const barchart = (selection, props) => {
 	.merge(rectangles)
 	.attr('y',d=>catScale(props.catValue(d)))
 	.attr('width',d=>dataScale(props.dataValue(d)))
-	.attr('height', catScale.bandwidth())
-	.remove();
+	.attr('height', catScale.bandwidth());
 
 };
 
