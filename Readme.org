@@ -1,4 +1,36 @@
 #+Title: Q1 reporting 
 #+Author: Evan Misshula
 
-The graph updates the rectangles but not the catAxis (y-axis).  Any help is appreciated!
+
+** Status
+The graph updates! I am prooud of this success but there is still more work to be done.
+
+** Compiling outside of Vizhub
+
+This interactive horizontal bargraph is based on three Curran Kelleher
+excellent videos [[https://www.youtube.com/watch?v=MjjYLbShFi8][Scatter plot with menus]], [[https://www.youtube.com/watch?v=-RQWC4I2I1s&t=187s][Intro to D3js - Let's make a
+face]] and [[https://www.youtube.com/watch?v=NlBt-7PuaLk][Making a barchart with d3js]]. I am an Emacs devotee so I try
+to stay away from magic online environments like Vizhub where I don't
+know what is going on. However, I have to acknowledge that Vizhub does
+reduce the cognitive load on creating and compiling rograms for the web.
+
+*** What I do
+
+Like Vizhub, I am using rollup.js to create a single javascript file.  Rollup is responsible 
+for taking out ES6 module syntax and converting it to ES5 syntax which we can use with
+my current version of Node:
+
+~node --version~
+~v8.16.1~
+
+
+To compile I simply type the following at the command line while in the directory of my project.
+
+~rollup index.js --format iife  --file bundle.js~
+
+I then serve the directory an emacs mode called [[https://github.com/skeeto/emacs-web-server][httpd-server]]
+
+** Vizhub
+
+I don't understand why this works in Chrome and Chromium but not
+Vizhub.  Any insight is appreciated.
