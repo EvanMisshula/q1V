@@ -12,7 +12,7 @@ excellent videos [[https://www.youtube.com/watch?v=MjjYLbShFi8][Scatter plot wit
 face]] and [[https://www.youtube.com/watch?v=NlBt-7PuaLk][Making a barchart with d3js]]. I am an Emacs devotee so I try
 to stay away from magic online environments like Vizhub where I don't
 know what is going on. However, I have to acknowledge that Vizhub does
-reduce the cognitive load on creating and compiling rograms for the web.
+reduce the cognitive load on creating and compiling programs for the web.
 
 *** What I do
 
