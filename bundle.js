@@ -104,6 +104,9 @@
 
 	    const rectangles = g.merge(gEnter).
 		  selectAll('rect').data(props.restrictedData);
+
+	    rectangles.exit().remove();
+	    
 	    rectangles.enter().append('rect')
 		.merge(rectangles)
 		.attr('y',d=>catScale(props.catValue(d)))
