@@ -3,7 +3,7 @@
 
 
 ** Status
-The graph updates! I am prooud of this success but there is still more work to be done.
+The graph updates! I am proud of this success but there is still more work to be done.
 
 ** Compiling outside of Vizhub
 
