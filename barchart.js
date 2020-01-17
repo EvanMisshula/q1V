@@ -1,10 +1,9 @@
 import { select,
-	 selectAll,
 	 csv,
 	 scaleLinear,
 	 scaleBand,
 	 axisLeft,
-	 axisBottom
+	 axisBottom,
        } from 'd3';
 
 export const barchart = (selection, props) => {
@@ -12,6 +11,7 @@ export const barchart = (selection, props) => {
 	const { 
 	    dataValue,
 	    catValue,
+	    question,
 	    restrictedData,
 	    margin,
 	    width,
@@ -100,6 +100,7 @@ export const barchart = (selection, props) => {
     const rectangles = g.merge(gEnter).
 	  selectAll('rect').data(props.restrictedData);
 
+
     rectangles.exit().remove();
     
     rectangles.enter().append('rect')
@@ -108,6 +109,10 @@ export const barchart = (selection, props) => {
 	.attr('width',d=>dataScale(props.dataValue(d)))
 	.attr('height', catScale.bandwidth());
 
+//    const textSamp = "Are you able to regularly access religious services?";
+
+    
+//    console.log(wrap(textSamp,20));    
 };
 
 

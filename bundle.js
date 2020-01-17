@@ -105,6 +105,7 @@
 	    const rectangles = g.merge(gEnter).
 		  selectAll('rect').data(props.restrictedData);
 
+
 	    rectangles.exit().remove();
 	    
 	    rectangles.enter().append('rect')
@@ -113,7 +114,13 @@
 		.attr('width',d=>dataScale(props.dataValue(d)))
 		.attr('height', catScale.bandwidth());
 
+	//    const textSamp = "Are you able to regularly access religious services?";
+
+	    
+	//    console.log(wrap(textSamp,20));    
 	};
+
+	//import { wrap } from './twrap';
 
 	const svg = d3.select('svg');
 
@@ -160,10 +167,14 @@
 	    console.log(displayCategory);
 	    console.log(restrictedData);
 	    console.log(height);
+
+
+
 	    
 	    svg.call(barchart,{
 		dataValue: d => d.yesPct,
 		catValue: d => d.qNum,
+		quesText: d => d.Question,
 		restrictedData: restrictedData,
 		margin: margin,
 		width: width,

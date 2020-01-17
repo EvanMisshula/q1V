@@ -8,6 +8,7 @@ import { select,
 
 import { dropDownMenu } from './dropDownMenu';
 import { barchart } from './barchart';
+//import { wrap } from './twrap';
 
 const svg = select('svg');
 
@@ -54,10 +55,14 @@ const render = ()  => {
     console.log(displayCategory);
     console.log(restrictedData);
     console.log(height);
+
+
+
     
     svg.call(barchart,{
 	dataValue: d => d.yesPct,
 	catValue: d => d.qNum,
+	quesText: d => d.Question,
 	restrictedData: restrictedData,
 	margin: margin,
 	width: width,
