@@ -62,7 +62,7 @@ const render = ()  => {
     svg.call(barchart,{
 	dataValue: d => d.yesPct,
 	catValue: d => d.qNum,
-	quesText: d => d.Question,
+	question: d => d.Question,
 	restrictedData: restrictedData,
 	margin: margin,
 	width: width,
