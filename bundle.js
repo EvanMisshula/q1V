@@ -114,6 +114,8 @@
 		.attr('width',d=>dataScale(props.dataValue(d)))
 		.attr('height', catScale.bandwidth());
 
+	    
+	    
 	//    const textSamp = "Are you able to regularly access religious services?";
 
 	    
@@ -174,7 +176,7 @@
 	    svg.call(barchart,{
 		dataValue: d => d.yesPct,
 		catValue: d => d.qNum,
-		quesText: d => d.Question,
+		question: d => d.Question,
 		restrictedData: restrictedData,
 		margin: margin,
 		width: width,

@@ -109,6 +109,8 @@ export const barchart = (selection, props) => {
 	.attr('width',d=>dataScale(props.dataValue(d)))
 	.attr('height', catScale.bandwidth());
 
+    
+    
 //    const textSamp = "Are you able to regularly access religious services?";
 
     
