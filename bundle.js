@@ -187,7 +187,7 @@
 
 
 
-	 d3.csv('./aggq1Results.csv').then(loadedData => {
+	 d3.csv('./aggQ1Results.csv').then(loadedData => {
 	     data = loadedData;
 	     data.forEach(d=>{
 		 d.Category = d.Category;

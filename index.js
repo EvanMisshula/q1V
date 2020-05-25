@@ -75,7 +75,7 @@ const render = ()  => {
 
 
 
- csv('./aggq1Results.csv').then(loadedData => {
+ csv('./aggQ1Results.csv').then(loadedData => {
      data = loadedData;
      data.forEach(d=>{
 	 d.Category = d.Category;

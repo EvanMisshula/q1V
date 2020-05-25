@@ -3,7 +3,8 @@
 
 
 ** Status
-The graph updates! I am proud of this success but there is still more work to be done.
+The graph updates! I am proud of this success but there is still more
+work to be done.
 
 ** Compiling outside of Vizhub
 
@@ -16,9 +17,9 @@ reduce the cognitive load on creating and compiling programs for the web.
 
 *** What I do
 
-Like Vizhub, I am using rollup.js to create a single javascript file.  Rollup is responsible 
-for taking out ES6 module syntax and converting it to ES5 syntax which we can use with
-my current version of Node:
+Like Vizhub, I am using rollup.js to create a single javascript file.
+Rollup is responsible for taking out ES6 module syntax and converting
+it to ES5 syntax which we can use with my current version of Node:
 
 ~node --version~
 ~v8.16.1~
